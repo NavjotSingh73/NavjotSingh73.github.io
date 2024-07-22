@@ -76,9 +76,9 @@ function displayRecipeDetails(recipe) {
 
   recipeDetailsDiv.appendChild(recipeTitle);
   recipeDetailsDiv.appendChild(recipeImage);
-  recipeDetailsDiv.appendChild(document.createElement('h4')).textContent = 'Ingredients';
+  recipeDetailsDiv.appendChild(document.createElement('h4')).textContent = 'Ingredients and Steps';
   recipeDetailsDiv.appendChild(ingredientsList);
-  recipeDetailsDiv.appendChild(document.createElement('h4')).textContent = 'Instructions';
+  recipeDetailsDiv.appendChild(document.createElement('h4')).textContent = 'More detailed Instructions';
   recipeDetailsDiv.appendChild(instructions);
 
   resultsDiv.appendChild(recipeDetailsDiv);
