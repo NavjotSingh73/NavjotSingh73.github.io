@@ -1,40 +1,41 @@
 let url = "https://www.themealdb.com/api/json/v1/1/Categories.php";
 
-let showData= async ()=>{
+let showData = async () => {
   try {
-    let res =await fetch(url);
+    let res = await fetch(url);
     let data = await res.json();
-    append(data.categories)
-    console.log(data.categories);
 
+    let filteredCategories = data.categories.filter(category => category.strCategory !== "Beef");
 
+    append(filteredCategories);
+    console.log(filteredCategories);
   } catch (error) {
     console.log(error);
   }
-}
+};
+
 showData();
 
-let append = (data) =>{
+let append = (data) => {
   let categories = document.getElementById("categories");
   
   data.forEach(function(el) {
-    
-    let div= document.createElement("div");
+    let div = document.createElement("div");
 
-    let h3=document.createElement("h3");
-    h3.innerText=el.strCategory;
+    let h3 = document.createElement("h3");
+    h3.innerText = el.strCategory;
 
-    let img=document.createElement("img");
-    img.src=el.strCategoryThumb;
+    let img = document.createElement("img");
+    img.src = el.strCategoryThumb;
 
     let desc = document.createElement("p");
-    desc.innerText=el.strCategoryDescription;
+    desc.innerText = el.strCategoryDescription;
 
-    div.append(h3,img,desc);
+    div.append(h3, img, desc);
 
     categories.append(div);
   });
-}
+};
 
 let search =async () =>{
 
